@@ -19,6 +19,17 @@ public class Rekursion {
 
     private static long fibonacci_iterativ(long n) {
         long ergebnis = 1;
+        if (n > 2) {
+            n -= 2; // das gleiche wie: n = n - 2;
+            long f_n_1 = 1;
+            long f_n_2 = 1;
+            while (n > 0) {
+                ergebnis = f_n_1 + f_n_2; // aktuelle Berechnung
+                f_n_2 = f_n_1;
+                f_n_1 = ergebnis;
+                n--;
+            }
+        }
         return ergebnis;
     }
 
@@ -31,10 +42,17 @@ public class Rekursion {
         int f = fakultät(7);
         System.out.println(f);
 
-        long zeit = System.currentTimeMillis();
-        System.out.println( fibonacci(50) );
-        zeit = System.currentTimeMillis() - zeit;
-        System.out.println("Die Berechnung hat " + zeit + "ms gedauert.");
+        long zahl_zum_berechnen = 60;
+
+        long zeit = System.nanoTime();
+        System.out.println( fibonacci(zahl_zum_berechnen) );
+        zeit = System.nanoTime() - zeit;
+        System.out.println("Die rekursive Berechnung hat " + zeit + "ns gedauert.");
         System.out.println("Die Methode wurde " + aufruf_zähler + " Mal aufgerufen");
+
+        zeit = System.nanoTime();
+        System.out.println( fibonacci_iterativ(zahl_zum_berechnen) );
+        zeit = System.nanoTime() - zeit;
+        System.out.println("Die iterative Berechnung hat " + zeit + "ns gedauert.");
     }
 }
