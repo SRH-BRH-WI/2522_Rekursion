@@ -17,6 +17,11 @@ public class Rekursion {
         return ergebnis;
     }
 
+    private static long fibonacci_iterativ(long n) {
+        long ergebnis = 1;
+        return ergebnis;
+    }
+
     private static int fakultät(int n) {
         if (n == 0) return 1;
         return n * fakultät(n-1);
