@@ -42,7 +42,7 @@ public class Rekursion {
         int f = fakultät(7);
         System.out.println(f);
 
-        long zahl_zum_berechnen = 60;
+        long zahl_zum_berechnen = 70;
 
         long zeit = System.nanoTime();
         System.out.println( fibonacci(zahl_zum_berechnen) );
